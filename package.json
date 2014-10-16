@@ -1,0 +1,16 @@
+{
+  "name": "koa-paginate",
+  "version": "0.0.0",
+  "description": "A koa pagination middleware.",
+  "main": "index.js",
+  "keywords": [
+    "koa",
+    "pagination",
+    "paginate"
+  ],
+  "author": "André Marques",
+  "license": "MIT",
+  "dependencies": {
+    "extend": "^2.0.0"
+  }
+}
