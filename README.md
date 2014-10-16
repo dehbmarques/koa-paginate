@@ -3,6 +3,10 @@ koa-paginate
 
 A koa pagination middleware
 
+Install
+============
+    npm install koa-paginate
+
 Example
 ============
     var app = require("koa")(),
