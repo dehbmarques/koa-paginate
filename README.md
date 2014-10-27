@@ -42,7 +42,7 @@ Example
     
     app.get("/", function* () {
     
-        // this wraps the data and add the next_href property
+        // this wraps the data and add the nextHref property
         this.paginate = true;
 
 		// get the limit and offset (comes from the querystring)
@@ -66,12 +66,12 @@ Example
 which produces
 
     {
-	    items: [
+	    data: [
 		    285,
 		    286,
 		    287,
 		    288,
 		    289
 	    ],
-	    next_href: "http://localhost:3000/?limit=5&offset=285"
+	    nextHref: "http://localhost:3000/?limit=5&offset=285"
     }

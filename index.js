@@ -25,7 +25,7 @@ function middleware (_opts) {
         var limit = parseInt(query.limit);
         var offset = parseInt(query.offset);
         limit = isNaN(limit) ? opts.defaultLimit : limit;
-        offset = isNaN(offset) ? 0 : offset + limit;
+        offset = isNaN(offset) ? 0 : offset;
 
         if (limit > opts.maxLimit) {
             throw new MaxLimitError(opts.maxLimit, limit);
@@ -47,13 +47,13 @@ function middleware (_opts) {
         if (this.pagination.paginate) {
 
             query.limit = this.pagination.limit;
-            query.offset = this.pagination.offset;
+            query.offset = this.pagination.offset + query.limit;
 
-            var next_href = this.request.protocol + '://' + this.request.host + this.request.path + '?' + querystring.stringify(query);
+            var nextHref = this.request.protocol + '://' + this.request.host + this.request.path + '?' + querystring.stringify(query);
 
             this.body = {
-                items: this.body,
-                next_href: next_href
+                data: this.body,
+                nextHref: nextHref
             };
         }
     };

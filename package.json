@@ -1,20 +1,30 @@
 {
-    "name": "koa-paginate",
-    "version": "0.0.2",
-    "description": "A koa pagination middleware.",
-    "author": "André Marques",
-    "main": "index.js",
-    "keywords": [
-        "koa",
-        "pagination",
-        "paginate"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/dehbmarques/koa-paginate.git"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "extend": "^2.0.0"
-    }
+  "name": "koa-paginate",
+  "version": "0.0.3",
+  "description": "A koa pagination middleware.",
+  "author": "André Marques",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --harmony-generators"
+  },
+  "keywords": [
+    "koa",
+    "pagination",
+    "paginate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dehbmarques/koa-paginate.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "extend": "^2.0.0"
+  },
+  "devDependencies": {
+    "koa": "^0.13.0",
+    "mocha": "^2.0.1",
+    "should": "^4.1.0",
+    "supertest": "^0.14.0",
+    "underscore": "^1.7.0"
+  }
 }
