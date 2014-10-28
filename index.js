@@ -34,6 +34,7 @@ function middleware (_opts) {
         this.pagination = {
             limit: limit,
             offset: offset,
+            nextPageParams: null,
             paginate: false
         };
 
@@ -46,8 +47,13 @@ function middleware (_opts) {
 
         if (this.pagination.paginate) {
 
-            query.limit = this.pagination.limit;
-            query.offset = this.pagination.offset + query.limit;
+            if (this.pagination.nextPageParams === null) {
+                query.limit = this.pagination.limit;
+                query.offset = this.pagination.offset + query.limit;
+            }
+            else {
+                extend(query, this.pagination.nextPageParams);
+            }
 
             var nextHref = this.request.protocol + '://' + this.request.host + this.request.path + '?' + querystring.stringify(query);
 

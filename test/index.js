@@ -85,6 +85,31 @@ describe('koa-paginate', function () {
             });
     });
 
+    it('should nextHref querystring be status=ok&nextNode=10', function (done) {
+
+        var app = koa();
+        app.use(paginate.middleware());
+
+        app.use(function* () {
+            this.paginate = true;
+            this.pagination.nextPageParams = {
+                nextNode: 10
+            };
+            this.body = _.range(10);
+        });
+
+        request(http.createServer(app.callback()))
+            .get('/?status=ok')
+            .expect(200)
+            .end(function(err, res) {
+                if (err) return done(err);
+
+                res.body.nextHref.split('?')[1].should.be.equal('status=ok&nextNode=10');
+
+                done();
+            });
+    });
+
     it('should return 400 Bad Request', function (done) {
         request(http.createServer(app.callback()))
             .get('/?limit=60&offset=20')
